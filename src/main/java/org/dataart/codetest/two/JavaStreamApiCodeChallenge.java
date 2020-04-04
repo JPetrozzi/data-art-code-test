@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class JavaStreamApiCodeChallenge {
 
+    static final int AGE_TO_FILTER = 21;
+
     public static void main(String[] args) {
         List<Person> people = Arrays.asList(
                 new Person(1, "test1", 22, Arrays.asList("music", "dance", "tennis")),
@@ -17,7 +19,7 @@ public class JavaStreamApiCodeChallenge {
 
         System.out.println(String.format("Interests of people older than 21 years: %s",
                 people.stream()
-                        .filter(person -> person.getAge() >= 21)
+                        .filter(person -> person.getAge() >= AGE_TO_FILTER)
                         .flatMap(person -> person.getInterests().stream())
                         .distinct()
                         .sorted()
